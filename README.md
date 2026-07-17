@@ -46,7 +46,7 @@ Simulations of the yield-hardened Golden Master configuration yield industry-lea
 
 ## 📋 File Inventory
 
-* `omnipulse_x1_production.gds`: The final production layout binary database containing the 233 geometry definitions optimized for mask generation.
+* `omnipulse_x1_production (1).gds`: The final production layout binary database containing the 233 geometry definitions optimized for mask generation.
 * `production_manifest.txt`: Detailed geometric bounding box register for all layout layers.
 
 ---
