@@ -1,0 +1,61 @@
+CERN Open Hardware Licence v2 - Strongly Reciprocal
+
+Copyright (c) 2026 Khushpreet Singh
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or any later version.
+
+Text of the CERN Open Hardware Licence v2 - Strongly Reciprocal:
+
+1. Definitions
+
+1.1 'Licensor' means the person or entity that grants access to and the right 
+to use the Product Design Data under the terms and conditions of this Licence.
+
+1.2 'Product Design Data' means the documents, schematics, PCB layouts, GDSII 
+files, source code, and other digital assets that define the physical 
+structure, logic, and manufacturing instructions of the Product.
+
+1.3 'Product' means any physical object, hardware device, or integrated 
+circuit manufactured, assembled, or synthesized based on the Product Design Data.
+
+1.4 'Licensee' means any person or entity exercising rights under this Licence.
+
+2. Grant of Rights
+
+2.1 The Licensor hereby grants the Licensee a worldwide, royalty-free, 
+non-exclusive, perpetual licence to use, copy, modify, communicate, and 
+distribute the Product Design Data, as well as to manufacture and distribute 
+Products derived from it, subject to the conditions in Section 3.
+
+3. Reciprocal Conditions
+
+3.1 If the Licensee makes any modifications to the Product Design Data, or 
+manufactures Products based on it, any distribution of the modified Product 
+Design Data or the resulting Products must be executed under the exact same 
+terms of this Licence (CERN-OHL-S-2.0).
+
+3.2 The Licensee must retain all original copyright notices, license 
+identifiers, and disclaimer text within all copies or derivative variations 
+of the Product Design Data.
+
+3.3 Third-Party Exceptions: In accordance with microelectronics design 
+paradigms, the requirement to open-source modifications does not extend to 
+proprietary foundational macro-cells, standard cell libraries, or manufacturing 
+process primitives provided natively by commercial semiconductor foundries 
+(PDK tools), which are utilized to compile the open physical layout layouts.
+
+4. Disclaimer of Warranty & Liability
+
+4.1 THE PRODUCT DESIGN DATA IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT 
+NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS PRODUCT DESIGN DATA, 
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
