@@ -1,58 +1,160 @@
-# OmniPulse-X1 (V2 Golden Master)
+# OmniPulse-X1
 
-![OSHWA Certification Pending](https://img.shields.io/badge/OSHWA-Pending-orange)
-![License](https://img.shields.io/badge/License-CERN--OHL--S--2.0-blue)
-![Status](https://img.shields.io/badge/Status-READY_FOR_TAPE--OUT-green)
+> **Open-Source Ultra-Wideband RF Layout Generator**
 
-The **OmniPulse-X1 V2** is an open-source, ultra-wideband RF Booster Chip designed for high-performance amplification across the 0.6GHz–40GHz spectrum. Built on an advanced compound GaN-on-Diamond substrate, this architecture addresses critical high-frequency thermal bottlenecks and parasitic constraints, making it highly optimized for next-generation wideband healthcare infrastructure, medical imaging, and radar systems.
+## Overview
 
----
+OmniPulse-X1 is an open-source hardware project that generates a production-style GDSII layout for an experimental ultra-wideband RF integrated circuit using Python and the `gdstk` library.
 
-## 🚀 Architectural Overview & Changes (V1 vs. V2)
+The repository is intended to demonstrate a reproducible, script-generated IC layout workflow where the GDSII database is produced from editable source code rather than maintained as a manually edited binary artifact.
 
-Following rigorous electromagnetic and spatial design reviews, the V2 iteration introduces structural changes to maximize power transfer efficiency and harden manufacturing yield:
+The project includes:
 
-* **Impedance Matching Optimization:** Converted the rigid rectangular transmission line from V1 into a dynamically tapered geometric width transition ($4.0\mu\text{m}$ to $8.0\mu\text{m}$) using `gdstk.FlexPath`. 
-* **Parasitic Crosstalk Mitigation:** Increased control pad isolation pitch to $60\mu\text{m}$ and interleaved dedicated copper ground-guard traces on Layer 5, achieving an estimated **25dB improvement** in signal isolation.
-* **Electromagnetic Symmetry:** Recentered the active CMOS logic core at coordinates $(0,0)$ and introduced a quad-symmetric 4-corner structural anchor array to eliminate substrate ground loops.
-
----
-
-## 📈 Performance Validation
-
-Simulations of the yield-hardened Golden Master configuration yield industry-leading metrics across the entire 40GHz band:
-
-* **S11 (Return Loss):** Tops out at a phenomenal **$-33.5\text{ dB}$ at $40\text{ GHz}$**, ensuring that $99.95\%$ of the input power successfully transitions into the core without backward reflection.
-* **S21 (Insertion Loss):** Maintains a consistent throughput near $0\text{ dB}$, featuring localized high-frequency gain peaking toward $40\text{ GHz}$ to counter transmission line losses.
-* **Production Threshold:** Safely beats the strict industry margin requirement of $-18\text{ dB}$ across the full operating range, protecting chip yields from variations in foundry etching and dielectric thickness.
+* Python-based layout generation
+* GDSII mask generation
+* Manufacturing geometry manifest
+* Hardware documentation
+* Open hardware licensing under CERN-OHL-S-2.0
 
 ---
 
-## 🛠️ Layer Stack & Fabrication Specs
+# Features
 
-| Layer ID | Material | Function | Description |
-| :--- | :--- | :--- | :--- |
-| **Layer 1** | GaN-on-Diamond | Active RF Core | Fractal Hilbert-Curve amplifier with tapered geometries |
-| **Layer 2** | Tungsten (W) | Via Interconnect | High-density Through-Silicon Via (TSV) matrix |
-| **Layer 3** | Bulk CMOS | Logic / Bias | AI-Predictive biasing engine centered at $(0,0)$ |
-| **Layer 4** | Gold / Nickel | I/O Pad Array | Signal interface pads with $60\mu\text{m}$ pitch isolation |
-| **Layer 5** | Copper (Cu) | Ground / Guard | Quad-symmetric grounding lattice & inter-pad guard bars |
-
-* **Substrate:** Synthetic Diamond-on-GaN ($k > 2000\text{ W/m}\cdot\text{K}$ for rapid heat dissipation)
-* **Lithography Target:** Deep Ultraviolet (DUV)
-* **Packaging:** Thermal-conductive Wafer Level Chip Scale Package (WLCSP)
+* Script-generated GDSII layout
+* Parametric geometry generation
+* RF transmission path using `gdstk.FlexPath`
+* Ground–Signal–Ground (GSG) pad array
+* Via fence generation
+* Ground lattice generation
+* Automatic GDSII export
+* Analytical example plot demonstrating a transmission-line-based return-loss calculation
 
 ---
 
-## 📋 File Inventory
-
-* `omnipulse_x1_production (1).gds`: The final production layout binary database containing the 233 geometry definitions optimized for mask generation.
-* `production_manifest.txt`: Detailed geometric bounding box register for all layout layers.
-
----
-
-## 🔐 Configuration Integrity
+# Repository Structure
 
 ```text
-Design Integrity Checksum (SHA-256):
-f9a2b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9
+OmniPulse-X1/
+│
+├── LICENSE
+├── README.md
+├── HARDWARE.md
+├── MANUFACTURING.md
+├── SOURCE.md
+├── SECURITY.md
+├── CODE_OF_CONDUCT.md
+├── source.py
+├── omnipulse_x1_production (1).gds
+│
+├── production_manifest.txt
+│
+├── download (2).png
+│
+└── docs/
+```
+
+---
+
+# Design Workflow
+
+```text
+Python Source
+      │
+      ▼
+gdstk Geometry Generation
+      │
+      ▼
+GDSII Layout
+      │
+      ▼
+Manufacturing Manifest
+      │
+      ▼
+Analytical Validation Plot
+```
+
+---
+
+# Layer Map
+
+| Layer | Purpose                              |
+| ----: | ------------------------------------ |
+|     1 | RF transmission geometry             |
+|     2 | Via fence structures                 |
+|     4 | Signal pads                          |
+|     5 | Ground structures and guard geometry |
+
+---
+
+# Requirements
+
+* Python 3.10 or newer
+* gdstk
+* NumPy
+* Matplotlib
+
+Install dependencies:
+
+```bash
+pip install gdstk numpy matplotlib
+```
+
+---
+
+# Building the Layout
+
+Generate the production GDSII:
+
+```bash
+python omnipulse_x1_generator.py
+```
+
+Generated outputs include:
+
+* `omnipulse_x1_production.gds`
+* `download (2).png`
+
+---
+
+# Design Philosophy
+
+The layout is generated entirely from editable Python source, enabling repeatable and version-controlled hardware development.
+
+Geometry is created programmatically using parameterized construction techniques rather than manual editing of the GDSII database.
+
+---
+
+# Validation
+
+The repository includes an analytical example that computes a transmission-line-based return-loss curve and exports a visualization.
+
+This analytical calculation is intended as an example workflow accompanying the layout generator. It should not be interpreted as a substitute for electromagnetic simulation or laboratory measurement of the generated layout.
+
+---
+
+# License
+
+Unless otherwise noted, the hardware design files in this repository are licensed under the **CERN Open Hardware Licence Version 2 – Strongly Reciprocal (CERN-OHL-S-2.0)**.
+
+See the `LICENSE` file for details.
+
+---
+
+# Contributing
+
+Contributions are welcome.
+
+Please read:
+
+* `CODE_OF_CONDUCT.md`
+* `SECURITY.md`
+
+before submitting pull requests or issue reports.
+
+---
+
+# Disclaimer
+
+This repository is provided for research, educational, and hardware development purposes.
+
+Users are responsible for verifying compatibility with their target fabrication process, manufacturing constraints, and application requirements before producing physical hardware.
