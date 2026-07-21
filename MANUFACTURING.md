@@ -35,7 +35,7 @@ Foundry Submission
 
 Primary design source:
 
-* `generator/omnipulse_x1_generator.py`
+* `source.py`
 
 Generated outputs:
 
@@ -72,7 +72,7 @@ pip install gdstk numpy matplotlib
 Run:
 
 ```bash
-python generator/omnipulse_x1_generator.py
+python source.py.py
 ```
 
 Successful execution generates:
